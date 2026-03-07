@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Ali Akyüz - Yazılım Mühendisliği Öğrencisi. HTML, CSS, JavaScript, Python ve C ile projeler geliştiren genç bir yazılımcı." />
+  <meta name="keywords" content="Ali Akyüz, portfolio, yazılım mühendisliği, software engineering, web developer" />
+  <meta property="og:title" content="Ali Akyüz | Portfolio" />
+  <meta property="og:type" content="website" />
+  <title>Ali Akyüz | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ======= NAV ======= -->
+  <nav id="nav">
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo">Ali<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-key="nav.about">Hakkımda</a></li>
+        <li><a href="#skills" data-key="nav.skills">Yetenekler</a></li>
+        <li><a href="#projects" data-key="nav.projects">Projeler</a></li>
+        <li><a href="#contact" data-key="nav.contact">İletişim</a></li>
+      </ul>
+      <div class="nav-r">
+        <button class="lang-btn" id="langBtn">🌐 EN</button>
+        <button class="burger" id="burger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mob-nav" id="mobNav">
+    <a href="#about" data-key="nav.about">Hakkımda</a>
+    <a href="#skills" data-key="nav.skills">Yetenekler</a>
+    <a href="#projects" data-key="nav.projects">Projeler</a>
+    <a href="#contact" data-key="nav.contact">İletişim</a>
+    <div style="display:flex;gap:12px;margin-top:8px;">
+      <a href="https://github.com/ali-akyuz" target="_blank" class="slink">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        </svg>
+      </a>
+      <a href="https://instagram.com/alii_akyuz" target="_blank" class="slink">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ======= HERO ======= -->
+  <section id="hero">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <p class="hero-greet"><span data-key="hero.greet">Merhaba, ben</span> 👋</p>
+        <h1 class="hero-name">Ali Akyüz</h1>
+        <div class="hero-role">
+          <span class="typing" id="typing"></span>
+          <span class="tcursor">|</span>
+        </div>
+        <p class="hero-desc" data-key="hero.desc">Kod yazmayı ve yeni teknolojiler keşfetmeyi seven, HTML, CSS,
+          JavaScript, Python ve C dilleriyle projeler geliştiren bir yazılım mühendisliği öğrencisiyim.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-p" data-key="hero.cta1">Projelerimi Gör</a>
+          <a href="#contact" class="btn btn-o" data-key="hero.cta2">İletişime Geç</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/ali-akyuz" target="_blank" class="slink" title="GitHub">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+          </a>
+          <a href="https://instagram.com/alii_akyuz" target="_blank" class="slink" title="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="av-wrap">
+          <div class="av-ring"></div>
+          <div class="av-circle">AA</div>
+          <div class="ftag a">⚡ JavaScript</div>
+          <div class="ftag b">🐍 Python</div>
+          <div class="ftag c">🌐 HTML & CSS</div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint">
+      <div class="scroll-mouse"></div>
+      <span>scroll</span>
+    </a>
+  </section>
+
+  <!-- ======= ABOUT ======= -->
+  <section id="about">
+    <div class="about-grid container">
+      <div class="reveal">
+        <span class="tag" data-key="about.tag">Hakkımda</span>
+        <h2 class="stitle">Ben Kimim?<span data-key="about.title2"> Bir Geliştirici</span></h2>
+        <p class="about-text" data-key="about.p1">Merhaba! Ben Ali Akyüz. Yazılım mühendisliği öğrencisi olarak web
+          teknolojileri, algoritma tasarımı ve yazılımın insan hayatına dokunduğu her alana büyük ilgi duyuyorum.</p>
+        <p class="about-text" data-key="about.p2">Boş zamanlarımda yeni projeler geliştiriyor, open-source topluluklara
+          katkı sağlamaya çalışıyor ve teknoloji alanındaki gelişmeleri yakından takip ediyorum.</p>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-n">5+</div>
+            <div class="stat-l" data-key="about.s1">Proje</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">5</div>
+            <div class="stat-l" data-key="about.s2">Teknoloji</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">2+</div>
+            <div class="stat-l" data-key="about.s3">Yıl</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="code-card">
+          <div class="code-hdr">
+            <div class="dot r"></div>
+            <div class="dot y"></div>
+            <div class="dot g"></div>
+            <span class="code-fn" data-key="about.fn">ali_akyuz.json</span>
+          </div>
+          <div class="code-body">
+            <div class="cl"><span class="cn">1</span><span class="cp">{</span></div>
+            <div class="cl"><span class="cn">2</span><span>&nbsp;&nbsp;<span class="ck">"name"</span><span
+                  class="cp">:</span> <span class="cs">"Ali Akyüz"</span><span class="cp">,</span></span></div>
+            <div class="cl"><span class="cn">3</span><span>&nbsp;&nbsp;<span class="ck">"role"</span><span
+                  class="cp">:</span> <span class="cs">"Software Eng. Student"</span><span class="cp">,</span></span>
+            </div>
+            <div class="cl"><span class="cn">4</span><span>&nbsp;&nbsp;<span class="ck">"skills"</span><span
+                  class="cp">:</span> <span class="cp">[</span></span></div>
+            <div class="cl"><span class="cn">5</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"HTML"</span><span
+                  class="cp">,</span> <span class="cs">"CSS"</span><span class="cp">,</span> <span
+                  class="cs">"JS"</span><span class="cp">,</span></span></div>
+            <div class="cl"><span class="cn">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"Python"</span><span
+                  class="cp">,</span> <span class="cs">"C"</span></span></div>
+            <div class="cl"><span class="cn">7</span><span>&nbsp;&nbsp;<span class="cp">]</span><span
+                  class="cp">,</span></span></div>
+            <div class="cl"><span class="cn">8</span><span>&nbsp;&nbsp;<span class="ck">"github"</span><span
+                  class="cp">:</span> <span class="cs">"ali-akyuz"</span><span class="cp">,</span></span></div>
+            <div class="cl"><span class="cn">9</span><span>&nbsp;&nbsp;<span class="ck">"instagram"</span><span
+                  class="cp">:</span> <span class="cs">"alii_akyuz"</span><span class="cp">,</span></span></div>
+            <div class="cl"><span class="cn">10</span><span>&nbsp;&nbsp;<span class="ck">"openToWork"</span><span
+                  class="cp">:</span> <span class="cv">true</span></span></div>
+            <div class="cl"><span class="cn">11</span><span class="cp">}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SKILLS ======= -->
+  <section id="skills">
+    <div class="skills-wrap">
+      <div class="skills-hdr reveal">
+        <span class="tag" data-key="skills.tag">Yetenekler</span>
+        <h2 class="stitle" data-key-prefix="skills"><span data-key="skills.title">Kullandığım </span><span
+            data-key="skills.title2">Teknolojiler</span></h2>
+        <p class="ssub" data-key="skills.sub">Çeşitli projeler geliştirirken kullandığım programlama dilleri ve araçlar.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-top">
+            <div class="skill-l">
+              <div class="skill-ico" style="background:rgba(228,77,38,.15)">🌐</div>
+              <div>
+                <div class="skill-nm">HTML</div>
+                <div class="skill-tp">Markup</div>
+              </div>
+            </div>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" data-pct="88"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.08s">
+          <div class="skill-top">
+            <div class="skill-l">
+              <div class="skill-ico" style="background:rgba(86,61,124,.15)">🎨</div>
+              <div>
+                <div class="skill-nm">CSS</div>
+                <div class="skill-tp">Styling</div>
+              </div>
+            </div>
+            <span class="skill-pct">82%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" data-pct="82"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.16s">
+          <div class="skill-top">
+            <div class="skill-l">
+              <div class="skill-ico" style="background:rgba(241,224,90,.15)">⚡</div>
+              <div>
+                <div class="skill-nm">JavaScript</div>
+                <div class="skill-tp">Programming</div>
+              </div>
+            </div>
+            <span class="skill-pct">75%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" data-pct="75"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.24s">
+          <div class="skill-top">
+            <div class="skill-l">
+              <div class="skill-ico" style="background:rgba(53,114,165,.15)">🐍</div>
+              <div>
+                <div class="skill-nm">Python</div>
+                <div class="skill-tp">Programming</div>
+              </div>
+            </div>
+            <span class="skill-pct">72%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" data-pct="72"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.32s">
+          <div class="skill-top">
+            <div class="skill-l">
+              <div class="skill-ico" style="background:rgba(85,85,85,.2)">⚙️</div>
+              <div>
+                <div class="skill-nm">C</div>
+                <div class="skill-tp">Systems</div>
+              </div>
+            </div>
+            <span class="skill-pct">65%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" data-pct="65"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tools-row reveal">
+        <div class="tools-lbl" data-key="skills.tools">— Araçlar & Ortamlar —</div>
+        <div class="tools-list">
+          <span class="tool">Git</span>
+          <span class="tool">GitHub</span>
+          <span class="tool">VS Code</span>
+          <span class="tool">Linux</span>
+          <span class="tool">Chrome DevTools</span>
+          <span class="tool">Figma</span>
+          <span class="tool">npm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= PROJECTS ======= -->
+  <section id="projects">
+    <div class="proj-wrap">
+      <div class="proj-hdr reveal">
+        <div>
+          <span class="tag" data-key="proj.tag">Projeler</span>
+          <h2 class="stitle"><span data-key="proj.title">GitHub </span><span data-key="proj.title2">Projelerim</span>
+          </h2>
+          <p class="ssub" data-key="proj.sub">GitHub üzerindeki açık kaynaklı çalışmalarım.</p>
+        </div>
+        <a href="https://github.com/ali-akyuz" target="_blank" class="gh-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+          <span data-key="proj.gh">GitHub Profilim</span>
+        </a>
+      </div>
+      <div class="proj-grid" id="projGrid">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div>
+            <span class="tag" data-key="contact.tag">İletişim</span>
+            <h2 class="stitle"><span data-key="contact.title">Bana </span><span data-key="contact.title2">Ulaşın</span>
+            </h2>
+            <p class="ssub" data-key="contact.sub">Bir proje fikriniz mi var? Her zaman açığım!</p>
+          </div>
+          <p class="contact-lead" data-key="contact.lead">Aşağıdaki formu doldurun ya da sosyal medya hesaplarımdan
+            ulaşın.</p>
+          <div class="c-items">
+            <a href="https://github.com/ali-akyuz" target="_blank" class="c-item">
+              <div class="c-ico">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </div>
+              <div>
+                <div class="c-lbl" data-key="contact.gh">GitHub</div>
+                <div class="c-val">github.com/ali-akyuz</div>
+              </div>
+            </a>
+            <a href="https://instagram.com/alii_akyuz" target="_blank" class="c-item">
+              <div class="c-ico">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </div>
+              <div>
+                <div class="c-lbl" data-key="contact.ig">Instagram</div>
+                <div class="c-val">@alii_akyuz</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:.15s">
+          <div class="form-card">
+            <h3 data-key="form.title">Mesaj Gönder</h3>
+            <form id="contactForm">
+              <div class="fg">
+                <label class="flbl" data-key="form.name">Adınız</label>
+                <input class="finp" type="text" id="fname" required data-key-ph="form.name.ph"
+                  placeholder="Adınızı girin" />
+              </div>
+              <div class="fg">
+                <label class="flbl" data-key="form.email">E-posta Adresiniz</label>
+                <input class="finp" type="email" id="femail" required data-key-ph="form.email.ph"
+                  placeholder="email@ornek.com" />
+              </div>
+              <div class="fg">
+                <label class="flbl" data-key="form.msg">Mesajınız</label>
+                <textarea class="ftxt" id="fmsg" required rows="5" data-key-ph="form.msg.ph"
+                  placeholder="Mesajınızı buraya yazın..."></textarea>
+              </div>
+              <button type="submit" class="fsub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" style="fill:none;width:17px;height:17px">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+                <span data-key="form.send">Mesaj Gönder</span>
+              </button>
+            </form>
+            <div class="fok" id="formOk" data-key="form.ok">✅ Mesajınız gönderildi! Teşekkürler.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-logo">Ali<span>.</span></div>
+      <p class="foot-copy" data-key="foot.copy">© 2025 Ali Akyüz. Tüm hakları saklıdır.</p>
+      <div class="foot-socials">
+        <a href="https://github.com/ali-akyuz" target="_blank" class="fsoc" title="GitHub">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+        <a href="https://instagram.com/alii_akyuz" target="_blank" class="fsoc" title="Instagram">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
