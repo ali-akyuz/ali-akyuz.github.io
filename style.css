@@ -127,7 +127,8 @@ h2.stitle span { background: var(--grad); -webkit-background-clip: text; -webkit
 .av-wrap { position:relative; width:300px; height:300px; display:flex; align-items:center; justify-content:center; }
 .av-ring { position:absolute; inset:-7px; border-radius:50%; background:conic-gradient(from 0deg, #7c6cf4, #06d6f5, #a855f7, #7c6cf4); animation:spin 7s linear infinite; }
 .av-ring::before { content:''; position:absolute; inset:3px; background:var(--bg); border-radius:50%; }
-.av-circle { width:264px; height:264px; border-radius:50%; background:var(--grad); display:flex; align-items:center; justify-content:center; font-size:4.5rem; font-weight:700; color:#fff; position:relative; z-index:1; letter-spacing:-.04em; box-shadow:var(--glow); }
+.av-circle { width:264px; height:264px; border-radius:50%; background:var(--grad); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; box-shadow:var(--glow); overflow:hidden; padding:0; }
+.av-circle img { width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
 .ftag { position:absolute; background:rgba(12,17,32,.92); border:1px solid var(--border); backdrop-filter:blur(10px); padding:7px 14px; border-radius:var(--rf); font-size:.75rem; font-weight:600; color:var(--t2); white-space:nowrap; animation:float 4.5s ease-in-out infinite; }
 .ftag.a { top:8%; right:-8%; animation-delay:0s; border-color:rgba(124,108,244,.35); }
 .ftag.b { bottom:18%; left:-12%; animation-delay:-2s; border-color:rgba(6,214,245,.35); }
@@ -264,7 +265,7 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:36px
   .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr;}
   .hero-inner{gap:44px;text-align:center;} 
   .hero-content{align-items:center;} .hero-greet::before{display:none;}
-  .hero-visual{order:-1;} .av-wrap{width:220px;height:220px;} .av-circle{width:190px;height:190px;font-size:3.5rem;}
+  .hero-visual{order:-1;} .av-wrap{width:220px;height:220px;} .av-circle{width:190px;height:190px;}
   .about-grid{gap:44px;} .contact-grid{gap:40px;}
   .nav-links{display:none;} .burger{display:flex;}
   .proj-hdr{flex-direction:column;align-items:flex-start;}
