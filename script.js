@@ -196,28 +196,38 @@ async function loadProjects() {
 loadProjects();
 
 // ===== CONTACT FORM =====
-document.getElementById('contactForm').addEventListener('submit', function (e) {
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
-  const name = document.getElementById('fname').value;
-  const email = document.getElementById('femail').value;
-  const msg = document.getElementById('fmsg').value;
-
-  // E-posta gönderilecek adres. Kendi e-posta adresinizle değiştirin.
-  const targetEmail = 'ali-akyuz@outlook.com';
-  const subject = encodeURIComponent(`İletişim Formu: ${name}`);
-  const body = encodeURIComponent(`Gönderen: ${name}\nE-posta: ${email}\n\nMesaj:\n${msg}`);
-
-  window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-
   const btn = this.querySelector('.fsub');
+  const initialBtnText = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = `<span>${currentLang === 'tr' ? 'Yönlendiriliyor...' : 'Redirecting...'}</span>`;
+  btn.innerHTML = `<span>${currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...'}</span>`;
 
-  setTimeout(() => {
-    this.style.display = 'none';
-    document.getElementById('formOk').style.display = 'block';
-  }, 1200);
+  // === DİKKAT: FORMSPREE KODUNUZU BURAYA GİRİN ===
+  // Formspree'den aldığınız 7 harfli/rakamlı endpoint kodunu 'YOUR_FORMSPREE_ID' yerine yazın (Örn: 'mdoqzzab')
+  const formspreeId = 'mojpaydv'; 
+
+  try {
+    const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      this.style.display = 'none';
+      document.getElementById('formOk').style.display = 'block';
+    } else {
+      throw new Error('Gönderim hatası');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = `<span>${currentLang === 'tr' ? 'Hata! Tekrar Dene' : 'Error! Try Again'}</span>`;
+    alert(currentLang === 'tr' ? 'Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta atın.' : 'Could not send message. Please try again later or email directly.');
+  }
 });
 
 // ===== INIT =====
