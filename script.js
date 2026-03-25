@@ -159,7 +159,10 @@ async function loadProjects() {
     });
     if (!res.ok) throw new Error('API error');
     const repos = await res.json();
-    const filtered = repos.filter(r => !r.fork).slice(0, 9);
+    
+    // Yalnızca GitHub'da "portfolio" etiketi (topic) olan projeleri filtrele
+    const filtered = repos.filter(r => !r.fork && r.visibility === 'public' && r.topics && r.topics.includes('portfolio')).slice(0, 9);
+    
     if (filtered.length === 0) { grid.innerHTML = `<p style="color:var(--t2);grid-column:1/-1;">${LANG[currentLang]['proj.err']}</p>`; return; }
     grid.innerHTML = filtered.map((r, i) => {
       const color = langColors[r.language] || langColors.default;
