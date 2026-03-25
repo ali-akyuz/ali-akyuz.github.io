@@ -1,4 +1,13 @@
-// ===== TRANSLATIONS =====
+/**
+ * @fileoverview Portfolio Website Main Script
+ * Handles translation, UI animations, GitHub API integration, and Formspree submission.
+ * @author Ali Akyüz
+ */
+
+/**
+ * Application Translations Dictionary
+ * Contains localization data for supported languages (Turkish and English).
+ */
 const LANG = {
   tr: {
     'nav.about': 'Hakkımda', 'nav.skills': 'Yetenekler', 'nav.projects': 'Projeler', 'nav.contact': 'İletişim',
@@ -80,7 +89,10 @@ document.getElementById('langBtn').addEventListener('click', () => {
   applyLang(currentLang === 'tr' ? 'en' : 'tr');
 });
 
-// ===== TYPING ANIMATION =====
+/**
+ * Typing Effect Animation Controller
+ * Simulates a typewriter effect on the specified text element.
+ */
 let typingTimer, deleting = false, charIdx = 0, currentText = '';
 function startTyping(text) {
   clearTimeout(typingTimer); deleting = false; charIdx = 0;
@@ -97,7 +109,10 @@ function typeStep() {
   }
 }
 
-// ===== NAV SCROLL =====
+/**
+ * Navigation Scroll Observer
+ * Toggles sticky styling and highlights the active navigation link based on scroll position.
+ */
 const nav = document.getElementById('nav');
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
@@ -109,7 +124,10 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ===== HAMBURGER =====
+/**
+ * Mobile Navigation Menu Controller
+ * Manages the toggle state of the hamburger menu for responsive design.
+ */
 const burger = document.getElementById('burger');
 const mobNav = document.getElementById('mobNav');
 burger.addEventListener('click', () => {
@@ -120,13 +138,19 @@ mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   burger.classList.remove('open'); mobNav.classList.remove('open');
 }));
 
-// ===== SCROLL REVEAL =====
+/**
+ * Elements Scroll Reveal Animation
+ * Uses IntersectionObserver to trigger fade-in animations when elements enter the viewport.
+ */
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// ===== SKILL BARS =====
+/**
+ * Skill Progress Bars Animation
+ * Observes skill sections and animates progress bars accordingly.
+ */
 const barObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -140,7 +164,11 @@ const barObs = new IntersectionObserver((entries) => {
 const skillsSection = document.getElementById('skills');
 if (skillsSection) barObs.observe(skillsSection);
 
-// ===== GITHUB PROJECTS =====
+/**
+ * GitHub API Integration
+ * Fetches recent repositories and renders them dynamicly onto the projects grid.
+ * Configured to filter primarily 'portfolio' tagged public repositories.
+ */
 const langColors = {
   JavaScript: '#f1e05a', Python: '#3572A5', HTML: '#e34c26',
   CSS: '#563d7c', C: '#555555', TypeScript: '#2b7489', Shell: '#89e051',
@@ -151,7 +179,7 @@ const GITHUB_USER = 'ali-akyuz';
 
 async function loadProjects() {
   const grid = document.getElementById('projGrid');
-  // skeleton
+  // Render skeleton loading state
   grid.innerHTML = Array(6).fill(`<div class="skel"><div class="skel-line" style="height:18px;width:60%;"></div><div class="skel-line" style="height:13px;width:90%;margin-top:8px;"></div><div class="skel-line" style="height:13px;width:75%;"></div><div class="skel-line" style="height:13px;width:40%;margin-top:14px;"></div></div>`).join('');
   try {
     const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=12`, {
@@ -160,7 +188,10 @@ async function loadProjects() {
     if (!res.ok) throw new Error('API error');
     const repos = await res.json();
 
-    // Yalnızca GitHub'da "portfolio" etiketi (topic) olan projeleri filtrele
+    /**
+     * Filter criteria logic:
+     * Exclude forks, require public visibility, and ensure the 'portfolio' topic is present.
+     */
     const filtered = repos.filter(r => !r.fork && r.visibility === 'public' && r.topics && r.topics.includes('portfolio')).slice(0, 9);
 
     if (filtered.length === 0) { grid.innerHTML = `<p style="color:var(--t2);grid-column:1/-1;">${LANG[currentLang]['proj.err']}</p>`; return; }
@@ -195,7 +226,11 @@ async function loadProjects() {
 }
 loadProjects();
 
-// ===== CONTACT FORM =====
+/**
+ * Content Form Submission Handler
+ * Intercepts the default form submission, streams data to Formspree via AJAX,
+ * and manages asynchronous UI states including loading, success, and error resets.
+ */
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
@@ -204,8 +239,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
   btn.disabled = true;
   btn.innerHTML = `<span>${currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...'}</span>`;
 
-  // === DİKKAT: FORMSPREE KODUNUZU BURAYA GİRİN ===
-  // Formspree'den aldığınız 7 harfli/rakamlı endpoint kodunu 'YOUR_FORMSPREE_ID' yerine yazın (Örn: 'mdoqzzab')
+  /**
+   * Formspree Endpoint Configuration
+   * Assigned the unique hash provided by Formspree dashboard.
+   */
   const formspreeId = 'mojpaydv'; 
 
   try {
@@ -220,9 +257,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
     if (response.ok) {
       this.style.display = 'none';
       document.getElementById('formOk').style.display = 'block';
-      this.reset(); // Form içindeki bilgileri temizler
+      this.reset(); // Clear input fields
       
-      // 4 saniye sonra 'gönderildi' onay mesajını gizleyip formu butonla birlikte tekrar eski haline getirir
+      // Restore initial form UI state after a 4-second delay 
+      // This provides feedback time before allowing subsequent submissions
       setTimeout(() => {
         document.getElementById('formOk').style.display = 'none';
         this.style.display = 'block';
@@ -239,7 +277,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 });
 
-// ===== INIT =====
+/**
+ * Application Initialization
+ * Bootstraps base components such as typing animation when the DOM is fully loaded.
+ */
 window.addEventListener('DOMContentLoaded', () => {
   startTyping(LANG[currentLang]['hero.role']);
 });
