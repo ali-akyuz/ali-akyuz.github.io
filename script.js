@@ -220,6 +220,15 @@ document.getElementById('contactForm').addEventListener('submit', async function
     if (response.ok) {
       this.style.display = 'none';
       document.getElementById('formOk').style.display = 'block';
+      this.reset(); // Form içindeki bilgileri temizler
+      
+      // 4 saniye sonra 'gönderildi' onay mesajını gizleyip formu butonla birlikte tekrar eski haline getirir
+      setTimeout(() => {
+        document.getElementById('formOk').style.display = 'none';
+        this.style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = initialBtnText;
+      }, 4000);
     } else {
       throw new Error('Gönderim hatası');
     }
