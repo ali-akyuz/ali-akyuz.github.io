@@ -159,10 +159,10 @@ async function loadProjects() {
     });
     if (!res.ok) throw new Error('API error');
     const repos = await res.json();
-    
+
     // Yalnızca GitHub'da "portfolio" etiketi (topic) olan projeleri filtrele
     const filtered = repos.filter(r => !r.fork && r.visibility === 'public' && r.topics && r.topics.includes('portfolio')).slice(0, 9);
-    
+
     if (filtered.length === 0) { grid.innerHTML = `<p style="color:var(--t2);grid-column:1/-1;">${LANG[currentLang]['proj.err']}</p>`; return; }
     grid.innerHTML = filtered.map((r, i) => {
       const color = langColors[r.language] || langColors.default;
@@ -198,9 +198,22 @@ loadProjects();
 // ===== CONTACT FORM =====
 document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
+
+  const name = document.getElementById('fname').value;
+  const email = document.getElementById('femail').value;
+  const msg = document.getElementById('fmsg').value;
+
+  // E-posta gönderilecek adres. Kendi e-posta adresinizle değiştirin.
+  const targetEmail = 'ali-akyuz@outlook.com';
+  const subject = encodeURIComponent(`İletişim Formu: ${name}`);
+  const body = encodeURIComponent(`Gönderen: ${name}\nE-posta: ${email}\n\nMesaj:\n${msg}`);
+
+  window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
   const btn = this.querySelector('.fsub');
   btn.disabled = true;
-  btn.innerHTML = '<span>Gönderiliyor...</span>';
+  btn.innerHTML = `<span>${currentLang === 'tr' ? 'Yönlendiriliyor...' : 'Redirecting...'}</span>`;
+
   setTimeout(() => {
     this.style.display = 'none';
     document.getElementById('formOk').style.display = 'block';
